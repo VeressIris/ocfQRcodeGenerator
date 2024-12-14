@@ -15,5 +15,8 @@ h3 {
 }
 
 body {
+	background-image: url('/background.png');
 	@apply text-xl;
+	/* @apply bg-green; */
+	@apply text-yellow-100;
 }
