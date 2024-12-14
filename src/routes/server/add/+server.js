@@ -5,7 +5,7 @@ export async function GET({ url }) {
 		const payload = JSON.stringify({ nume: user });
 
 		const response = await fetch(
-			'https://script.google.com/macros/s/AKfycbwNZJSpOI0BTn9pZaiwETtXJOctmwMxOvr4iQfy3Y8328CCpFJTDhsxc8Z6gRATzSVBSQ/exec',
+			'https://script.google.com/macros/s/AKfycbw7jO-UDZ4JNkBoq4Lg2VuDfWfgSSbljAdiKiI9LfNUJGiQW4H7KjaWutPTEM2t11-5/exec',
 			{
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
