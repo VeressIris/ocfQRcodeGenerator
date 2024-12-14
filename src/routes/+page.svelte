@@ -50,7 +50,7 @@
 </form>
 
 {#if generated}
-	<h2 class="mt-8 text-yellow-200">Acesta este codul tau.</h2>
+	<h2 class="mt-5 text-yellow-200">Acesta este codul tau.</h2>
 	<p class="italic font-medium mt-1">Nu uita să-l descarci!</p>
 	<img class="my-4 w-[250px]" src={QRrequest} alt="your QR code" />
 	<button
