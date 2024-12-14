@@ -14,7 +14,7 @@
 	async function generateData() {
 		userData = `${capitalizeFirstLetter(firstName)}${capitalizeFirstLetter(lastName)}`;
 
-		const data = `https://localhost:5173/server/add?user=${firstName} ${lastName}`;
+		const data = `https://ocf-qr-code.vercel.app/server/add?user=${firstName} ${lastName}`;
 		QRrequest = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(data)}&amp;size=600x600`; // idk why the size doesn't seem to go above 250px, maybe it's an API thing
 
 		console.log(QRrequest);
