@@ -3,8 +3,8 @@
 
 	let firstName = '';
 	let lastName = '';
-	let requestData = '';
-	let request = '';
+	let userData = '';
+	let QRrequest = '';
 	let generated = false;
 
 	function capitalizeFirstLetter(string) {
@@ -12,8 +12,13 @@
 	}
 
 	async function generateData() {
-		requestData = `${capitalizeFirstLetter(firstName)}${capitalizeFirstLetter(lastName)}`;
-		request = `https://api.qrserver.com/v1/create-qr-code/?data=${requestData}&amp;size=100x100`;
+		userData = `${capitalizeFirstLetter(firstName)}${capitalizeFirstLetter(lastName)}`;
+
+		const data = `https://localhost:5173/server/add?user=${firstName} ${lastName}`;
+		QRrequest = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(data)}&amp;size=600x600`; // idk why the size doesn't seem to go above 250px, maybe it's an API thing
+
+		console.log(QRrequest);
+
 		generated = true;
 	}
 
@@ -24,7 +29,7 @@
 
 		const link = document.createElement('a');
 		link.href = imageURL;
-		link.download = `${requestData}QRcode.png`;
+		link.download = `${userData}QRcode.png`;
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
@@ -44,9 +49,9 @@
 </form>
 
 {#if generated}
-	<img class="m-12" src={request} alt="your QR code" />
+	<img class="m-12 w-[250px]" src={QRrequest} alt="your QR code" />
 	<button
 		class="bg-blue-500 text-white py-2 px-3 rounded-lg max-w-52"
-		on:click={() => downloadImage(request)}>Download</button
+		on:click={() => downloadImage(QRrequest)}>Download</button
 	>
 {/if}
